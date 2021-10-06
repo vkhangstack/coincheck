@@ -1,0 +1,37 @@
+{
+  "name": "top-coins-cli",
+  "version": "0.1.0",
+  "description": "top 10 coins",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node ./src/app.js"
+  },
+  "bin": {
+    "topcoin": "./src/app.js"
+  },
+  "engines": {
+    "node": ">= 14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vkhangstack/top-coins-cli.git"
+  },
+  "keywords": [
+    "coin",
+    "crypto"
+  ],
+  "author": "vkhangstack",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vkhangstack/top-coins-cli/issues"
+  },
+  "homepage": "https://github.com/vkhangstack/top-coins-cli#readme",
+  "dependencies": {
+    "axios": "^0.22.0",
+    "cli-table3": "^0.6.0",
+    "colors": "^1.4.0",
+    "commander": "^8.2.0",
+    "ora": "^6.0.1"
+  }
+}
