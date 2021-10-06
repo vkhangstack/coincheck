@@ -1,5 +1,5 @@
 {
-  "name": "top-coins-cli",
+  "name": "coincheck",
   "version": "0.1.0",
   "description": "top 10 coins",
   "main": "app.js",
