@@ -2,8 +2,8 @@ version = 1
 
 [[analyzers]]
 name = "docker"
-enabled = true
+enabled = false
 
 [[analyzers]]
 name = "javascript"
-enabled = true
+enabled = false
