@@ -62,7 +62,7 @@ const defaultHeader = [
 // create column table
 const defaultColumns = defaultHeader.map((_item, index) => index);
 const columns = defaultColumns;
-const sortedColumns = columns.sort();
+const sortedColumns = [...columns].sort();
 const header = sortedColumns.map((index) => defaultHeader[index]);
 const table = new Table({
   chars: {
