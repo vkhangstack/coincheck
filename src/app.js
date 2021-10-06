@@ -17,14 +17,14 @@ const getColoredChangeValue = (value) => {
   return (value && (value > 0 ? text.green : text.red)) || "NA";
 };
 
-const getValidTop = (top) => {
-  if (Number.isNaN(top) || top < 1) {
+const getValidTop = (value) => {
+  if (Number.isNaN(value) || value < 1) {
     return DEFAULT_TOP;
   }
-  if (top > MAX_TOP) {
+  if (value > MAX_TOP) {
     return MAX_TOP;
   }
-  return top;
+  return value;
 };
 // command line interface
 const { version } = require("../package.json");
