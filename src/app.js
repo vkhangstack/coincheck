@@ -48,3 +48,39 @@ console.log("\n");
 
 const find = program.find;
 const top = find.length > 0 ? MAX : getValidTop(program.top);
+
+// handle table
+// create header table
+const defaultHeader = [
+  "Rank",
+  "Coin",
+  "Price (USD)",
+  "Change 24H",
+  "Market Cap",
+  "Volume 24H",
+].map((title) => title.yellow);
+// create column table
+const defaultColumns = defaultHeader.map((_item, index) => index);
+const columns = defaultColumns;
+const sortedColumns = columns.sort();
+const header = sortedColumns.map((index) => defaultHeader[index]);
+const table = new Table({
+  chars: {
+    "top": "─",
+    "top-mid": "┬",
+    "top-left": "┌",
+    "top-right": "┐",
+    "bottom": "─",
+    "bottom-mid": "┴",
+    "bottom-left": "└",
+    "bottom-right": "┘",
+    "left": "│",
+    "left-mid": "├",
+    "mid": "─",
+    "mid-mid": "┼",
+    "right": "│",
+    "right-mid": "┤",
+    "middle": "│",
+  },
+  head: header,
+});
