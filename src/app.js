@@ -84,3 +84,37 @@ const table = new Table({
   },
   head: header,
 });
+
+// loading data  animation
+const spinner = ora("Loading daa").start();
+
+// call coinmarketcap API
+const sourceUrl = `https://api.coincap.io/v2/assets?limit=${top}`;
+
+axios.get(sourceUrl).then((response) => {
+  spinner.stop();
+  response.data.data
+    .filter((record) => {
+      if (find.length > 0) {
+        return find.some(
+          (keyword) => record.symbol.toLowerCase() === keyword.toLowerCase(),
+        );
+      }
+      return true;
+    })
+    .map((record) => {
+      const editedRecord = {
+        name: record.name,
+        symbol: record.symbol,
+        rank: record.rank ? +record.rank : 0,
+        price: record.priceUsd ? +record.priceUsd : 0,
+        market_cap: record.marketCapUsd ? +record.marketCapUsd : 0,
+        supply: record.supply ? +record.supply : 0,
+        percent_change_24h: record.changePercent24Hr
+          ? +record.changePercent24Hr
+          : 0,
+        volume: record.volumeUsd24Hr ? +record.volumeUsd24Hr : 0,
+      };
+      return editedRecord;
+    });
+});
