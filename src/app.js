@@ -96,7 +96,7 @@ const sourceUrl = `https://api.coincap.io/v2/assets?limit=${top}`;
 
 axios
   .get(sourceUrl)
-  .then(function (response) {
+  .then((response) => {
     spinner.stop();
     response.data.data
       .filter((record) => {
