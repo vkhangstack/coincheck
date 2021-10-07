@@ -1,4 +1,5 @@
 #!/user/bin/env node
+"use strict";
 
 const program = require("commander");
 const axios = require("axios");
