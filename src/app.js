@@ -47,7 +47,7 @@ program
 console.log("\n");
 
 const find = program.find;
-const top = find.length > 0 ? MAX : getValidTop(program.top);
+const top = find.length > 0 ? MAX_TOP : getValidTop(program.top);
 
 // handle table
 // create header table
