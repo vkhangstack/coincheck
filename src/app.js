@@ -27,6 +27,9 @@ const getValidTop = (value) => {
   }
   return value;
 };
+const formatNumber = (value) => {
+  return value.toLocaleString("en-US");
+};
 // command line interface
 const { version } = require("../package.json");
 program
@@ -126,11 +129,11 @@ axios
           record.rank,
           record.symbol,
           record.name,
-          record.price.toFixed(4),
+          formatNumber(record.price.toFixed(4)),
           getColoredChangeValueText(record.percent_change_24h.toFixed(2)),
-          record.market_cap,
-          record.supply,
-          record.volume,
+          formatNumber(record.market_cap),
+          formatNumber(record.supply),
+          formatNumber(record.volume),
         ];
       })
       .forEach((record) => table.push(record));
