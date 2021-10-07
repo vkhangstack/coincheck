@@ -1,4 +1,5 @@
 #!/user/bin/env node
+
 const program = require("commander");
 const axios = require("axios");
 const ora = require("ora");
@@ -130,7 +131,7 @@ axios
           record.market_cap,
           record.supply,
           record.volume,
-        ].sortedColumns();
+        ];
       })
       .forEach((record) => table.push(record));
     if (table.length === 0) {
