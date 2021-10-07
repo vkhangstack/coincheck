@@ -117,9 +117,9 @@ axios
           symbol: record.symbol,
           rank: record.rank,
           price: record.priceUsd ? +record.priceUsd : 0,
-          market_cap: record.marketCapUsd ? +record.marketCapUsd : 0,
+          marketCap: record.marketCapUsd ? +record.marketCapUsd : 0,
           supply: record.supply ? +record.supply : 0,
-          percent_change_24h: record.changePercent24Hr
+          percentChange24h: record.changePercent24Hr
             ? +record.changePercent24Hr
             : 0,
           volume: record.volumeUsd24Hr ? +record.volumeUsd24Hr : 0,
@@ -130,9 +130,9 @@ axios
           record.rank,
           record.symbol,
           record.name,
-          formatNumber(record.price.toFixed(4)),
-          getColoredChangeValueText(record.percent_change_24h.toFixed(2)),
-          formatNumber(record.market_cap),
+          formatNumber(record.price),
+          getColoredChangeValueText(record.percentChange24h.toFixed(2)),
+          formatNumber(record.marketCap),
           formatNumber(record.supply),
           formatNumber(record.volume),
         ];
