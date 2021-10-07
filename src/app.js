@@ -10,7 +10,7 @@ const DEFAULT_TOP = 10;
 const MAX_TOP = 2000;
 
 // helper function
-const k = (value) => (value && value.split(",")) || [];
+const list = (value) => (value && value.split(",")) || [];
 
 const getColoredChangeValueText = (value) => {
   const text = `${value}%`;
@@ -94,7 +94,7 @@ const sourceUrl = `https://api.coincap.io/v2/assets?limit=${top}`;
 
 axios
   .get(sourceUrl)
-  .then((response) => {
+  .then(function (response) {
     spinner.stop();
     response.data.data
       .filter((record) => {
@@ -106,7 +106,7 @@ axios
         return true;
       })
       .map((record) => {
-        const editedRecord = {
+        return (editedRecord = {
           name: record.name,
           symbol: record.symbol,
           rank: record.rank ? +record.rank : 0,
@@ -117,28 +117,27 @@ axios
             ? +record.changePercent24Hr
             : 0,
           volume: record.volumeUsd24Hr ? +record.volumeUsd24Hr : 0,
-        };
-        return editedRecord;
+        });
       })
       .map((record) => {
-        const defaultValues = [
+        return (values = [
           record.rank,
           record.symbol,
-          record.price.toFixed(5),
+          record.price.toFixed(4),
           getColoredChangeValueText(record.percent_change_24h.toFixed(2)),
           record.market_cap,
           record.supply,
           record.volume,
-        ];
-        const values = sortedColumns.map((index) => defaultValues[index]);
-        return values;
+        ]);
+        // const values = sortedColumns.map((index) => defaultValues[index]);
       })
       .forEach((record) => table.push(record));
     if (table.length === 0) {
       console.log("We are not able to find coins matching your keyword".red);
     } else {
       console.log(
-        `Data source from coincap.io at ${new Date().toLocaleTimeString()}`,
+        `Data source from coincap.io at ${new Date().toLocaleTimeString()}`
+          .green,
       );
       console.log(table.toString());
     }
