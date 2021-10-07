@@ -93,7 +93,7 @@ const table = new Table({
 });
 
 // loading data  animation
-const spinner = ora("Loading daa").start();
+const spinner = ora("Loading data...").start();
 
 // call coinmarketcap API
 const sourceUrl = `https://api.coincap.io/v2/assets?limit=${top}`;
