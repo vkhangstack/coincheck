@@ -54,6 +54,7 @@ const top = find.length > 0 ? MAX : getValidTop(program.top);
 const defaultHeader = [
   "Rank",
   "Coin",
+  "Name",
   "Price (USD)",
   "Change 24H",
   "Market Cap",
@@ -106,10 +107,10 @@ axios
         return true;
       })
       .map((record) => {
-        return (editedRecord = {
+        let editedRecord = {
           name: record.name,
           symbol: record.symbol,
-          rank: record.rank ? +record.rank : 0,
+          rank: record.rank,
           price: record.priceUsd ? +record.priceUsd : 0,
           market_cap: record.marketCapUsd ? +record.marketCapUsd : 0,
           supply: record.supply ? +record.supply : 0,
@@ -117,19 +118,22 @@ axios
             ? +record.changePercent24Hr
             : 0,
           volume: record.volumeUsd24Hr ? +record.volumeUsd24Hr : 0,
-        });
+        };
+        return editedRecord;
       })
       .map((record) => {
-        return (values = [
+        const defaultValues = [
           record.rank,
           record.symbol,
+          record.name,
           record.price.toFixed(4),
           getColoredChangeValueText(record.percent_change_24h.toFixed(2)),
           record.market_cap,
           record.supply,
           record.volume,
-        ]);
-        // const values = sortedColumns.map((index) => defaultValues[index]);
+        ];
+        const values = sortedColumns.map((index) => defaultValues[index]);
+        return values;
       })
       .forEach((record) => table.push(record));
     if (table.length === 0) {
@@ -142,8 +146,7 @@ axios
       console.log(table.toString());
     }
   })
-  .catch((error) => {
-    console.log("error", error);
+  .catch(() => {
     spinner.stop();
     console.error("CoinCheck is not working now, Please try again later".red);
   });
