@@ -130,7 +130,7 @@ axios
           record.market_cap,
           record.supply,
           record.volume,
-        ].sortedColumns.map((index) => defaultValues[index]);
+        ].sortedColumns();
       })
       .forEach((record) => table.push(record));
     if (table.length === 0) {
