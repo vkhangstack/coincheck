@@ -121,7 +121,7 @@ axios
         };
       })
       .map((record) => {
-        const defaultValues = [
+        return [
           record.rank,
           record.symbol,
           record.name,
@@ -130,9 +130,7 @@ axios
           record.market_cap,
           record.supply,
           record.volume,
-        ];
-        const values = sortedColumns.map((index) => defaultValues[index]);
-        return values;
+        ].sortedColumns.map((index) => defaultValues[index]);
       })
       .forEach((record) => table.push(record));
     if (table.length === 0) {
