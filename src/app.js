@@ -107,7 +107,7 @@ axios
         return true;
       })
       .map((record) => {
-        let editedRecord = {
+        return {
           name: record.name,
           symbol: record.symbol,
           rank: record.rank,
@@ -119,7 +119,6 @@ axios
             : 0,
           volume: record.volumeUsd24Hr ? +record.volumeUsd24Hr : 0,
         };
-        return editedRecord;
       })
       .map((record) => {
         const defaultValues = [
