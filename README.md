@@ -1,8 +1,7 @@
-# top-coins-cli
+# Coin Check
 
 [![DeepSource](https://deepsource.io/gh/vkhangstack/coincheck.svg/?label=active+issues)](https://deepsource.io/gh/vkhangstack/coincheck/?ref=repository-badge)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=vkhangstack_top-coins-cli&metric=alert_status)](https://sonarcloud.io/dashboard?id=vkhangstack_top-coins-cli)
-
 
 [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=vkhangstack_top-coins-cli)](https://sonarcloud.io/dashboard?id=vkhangstack_top-coins-cli)
 
@@ -14,8 +13,8 @@ Best CLI tool for those who are both **Crypto investors** and **Engineers**.
 All data comes from [coincap](https://coincap.io/) APIs.
 
 ## Quick Update
-* As coinmarketcap API is only free with API keys, we moved to use coincap API and disabled some features.
 
+- As coinmarketcap API is only free with API keys, we moved to use coincap API and disabled some features.
 
 ## Development
 
