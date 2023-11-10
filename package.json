@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/vkhangstack/top-coins-cli#readme",
   "dependencies": {
-    "axios": "^0.22.0",
+    "axios": "^1.6.0",
     "cli-table3": "^0.6.0",
     "colors": "^1.4.0",
     "commander": "^2.11.0",
